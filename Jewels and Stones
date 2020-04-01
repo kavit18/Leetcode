@@ -1,0 +1,23 @@
+class Solution {
+    public int numJewelsInStones(String J, String S) {
+     int count = 0;
+        int arr[] = new int[58];
+        
+        for(char c : S.toCharArray())
+        {
+                arr[c-'A']++;  
+        }
+        
+        //System.out.println(Arrays.toString(arr));
+        
+        for(char c : J.toCharArray())
+        {
+            
+             count+= arr[c-'A']; 
+            
+             
+        }
+     
+        return count;
+    }
+}
