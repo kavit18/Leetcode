@@ -1,0 +1,38 @@
+class Solution {
+    public List<Integer> countSmaller(int[] nums) {
+         List<Integer> list = new LinkedList<Integer>();
+     Stack <Integer> s = new Stack<Integer>();
+     Stack <Integer> s1 = new Stack<Integer>();
+        
+        for(int i = nums.length - 1;i>=0;i--){
+            
+             if(s.empty())
+            {
+                 list.add(0);
+                s.push(nums[i]);
+            }
+            
+            else{
+            while(!s.empty() && s.peek()>=nums[i])
+            {
+                
+          
+                s1.push(s.pop());
+             }
+             
+            list.add(0,s.size());
+            s.push(nums[i]);
+                
+            while(!s1.empty())
+            {
+                s.push(s1.pop());
+             }
+            }
+             
+        
+        }
+        
+        return list;
+        
+    }
+}
